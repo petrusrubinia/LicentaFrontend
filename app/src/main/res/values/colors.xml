@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="theme1_1">#365B61</color>
+    <color name="theme1_2">#2AB2A6</color>
+    <color name="theme1_3">#69C2A4</color>
+    <color name="theme1_4">#87CD8F</color>
+    <color name="theme1_5">#B4D3A7</color>
+    <color name="theme1_6">#CCE7C6</color>
+    <color name="theme1_7">#D3D0A7</color>
+    <color name="theme1_8">#946E4E</color>
+    <color name="theme1_9">#101710</color>
+    <color name="theme1_10">#E7E6D4</color>
+    <color name="theme1_11">#FFFFFF</color>
+
+
+    <color name="theme2_1">#620615</color>
+    <color name="theme2_2">#786D4F</color>
+    <color name="theme2_3">#6D5457</color>
+    <color name="theme2_4">#DADDEE</color>
+    <color name="theme2_5">#C5AEC2</color>
+    <color name="theme2_6">#717196</color>
+    <color name="theme2_7">#4D6587</color>
+    <color name="theme2_8">#2C4D7B</color>
+    <color name="theme2_9">#3C3346</color>
+    <color name="theme2_10">#12203A</color>
+
+    <color name="theme3_1">#84002F</color>
+    <color name="theme3_2">#763366</color>
+    <color name="theme3_3">#C362A5</color>
+    <color name="theme3_4">#DB98CB</color>
+    <color name="theme3_5">#ABDFD2</color>
+    <color name="theme3_6">#008B98</color>
+    <color name="theme3_7">#00638C</color>
+    <color name="theme3_8">#014749</color>
+    <color name="theme3_9">#00285B</color>
+    <color name="theme3_10">#090538</color>
+
+
+
+    <color name="theme4_1">#721517</color>
+    <color name="theme4_2">#AE2012</color>
+    <color name="theme4_3">#BB3F01</color>
+    <color name="theme4_4">#C96600</color>
+    <color name="theme4_5">#EC9B01</color>
+    <color name="theme4_6">#E9D9A6</color>
+    <color name="theme4_7">#94D2BD</color>
+    <color name="theme4_8">#009496</color>
+    <color name="theme4_9">#005F73</color>
+    <color name="theme4_10">#012233</color>
+
+
+    <color name="theme5_1">#736D61</color>
+    <color name="theme5_2">#8F9D8C</color>
+    <color name="theme5_3">#A8A792</color>
+    <color name="theme5_4">#DCDBC7</color>
+    <color name="theme5_5">#F3E8E6</color>
+    <color name="theme5_6">#EACFC8</color>
+    <color name="theme5_7">#DEC0C2</color>
+    <color name="theme5_8">#CE9DA1</color>
+    <color name="theme5_9">#BC8B8E</color>
+    <color name="theme5_10">#914261</color>
+</resources>
