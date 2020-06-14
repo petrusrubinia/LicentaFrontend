@@ -1,19 +1,215 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:clickable="true"
+    android:focusable="true"
+    android:background="@drawable/background_gradient"
+    tools:showIn=".view.SettingsFragment"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="50dp"
+        android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/text_tools"
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/idProfilePicture"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="130dp"
+            android:src="@drawable/profile" />
+        <androidx.cardview.widget.CardView
+            android:id="@+id/idProfile_edit"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:layout_marginLeft="250dp"
+            android:layout_marginTop="130dp"
+            app:cardCornerRadius="50dp"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@mipmap/ic_edit_red" />
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:orientation="horizontal">
+        <androidx.cardview.widget.CardView
+            android:id="@+id/theme1"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginLeft="50dp"
+            app:cardCornerRadius="50dp"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:background="@drawable/theme1" />
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:id="@+id/theme2"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginLeft="25dp"
+            app:cardCornerRadius="50dp"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:background="@drawable/theme2" />
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:id="@+id/theme3"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginLeft="25dp"
+            app:cardCornerRadius="50dp"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:background="@drawable/theme3" />
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:id="@+id/theme4"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginLeft="25dp"
+            app:cardCornerRadius="50dp" android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:background="@drawable/theme4" />
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:id="@+id/theme5"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginLeft="25dp"
+            app:cardCornerRadius="50dp" android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:background="@drawable/theme5" />
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+    <EditText
+        android:id="@+id/idNume_util"
+        android:layout_width="305dp"
+        android:layout_height="55dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="58dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
+        android:layout_marginEnd="46dp"
+        android:paddingLeft="5dp"
+        android:background="@drawable/round_border"
+        android:backgroundTint="#FFF"
+        android:drawableLeft="@mipmap/ic_profile"
+        android:hint="Nume" />
+
+    <EditText
+        android:id="@+id/idPrenume_util"
+        android:layout_width="305dp"
+        android:layout_height="55dp"
+        android:layout_below="@+id/idNume_utilizator"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="44dp"
+        android:paddingLeft="5dp"
+        android:backgroundTint="#FFF"
+        android:background="@drawable/round_border"
+        android:drawableLeft="@mipmap/ic_prenume"
+        android:hint="Prenume"
+        />
+    <EditText
+        android:id="@+id/idEmail_util"
+        android:layout_width="305dp"
+        android:layout_height="55dp"
+        android:layout_below="@+id/idPrenume_utilizator"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="44dp"
+        android:paddingLeft="5dp"
+        android:backgroundTint="#FFF"
+        android:background="@drawable/round_border"
+        android:drawableLeft="@mipmap/ic_email"
+        android:hint="Email"
+        android:inputType="textEmailAddress"/>
+    <EditText
+        android:id="@+id/idNume_cont"
+        android:layout_width="305dp"
+        android:layout_height="55dp"
+        android:layout_below="@+id/idEmail_util"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="44dp"
+        android:backgroundTint="#FFF"
+        android:paddingLeft="5dp"
+        android:background="@drawable/round_border"
+        android:drawableLeft="@mipmap/ic_prenume"
+        android:hint="Nume utilizator" />
+    <EditText
+        android:id="@+id/idParola_util"
+        android:layout_width="305dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="44dp"
+        android:paddingLeft="5dp"
+        android:backgroundTint="#FFF"
+        android:background="@drawable/round_border"
+        android:drawableLeft="@mipmap/ic_password"
+        android:hint="Parola"
+        android:inputType="textPassword" />
+    <androidx.cardview.widget.CardView
+        android:id="@+id/idSave_edit"
+        android:layout_width="305dp"
+        android:layout_height="55dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="48dp"
+        app:cardBackgroundColor="?attr/loginColor1"
+        app:cardCornerRadius="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:clickable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:focusable="true">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Salvare"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            android:padding="10dp"/>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

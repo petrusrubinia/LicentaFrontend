@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:background="@color/theme1_10"
+    android:background="?attr/loginColor3"
     tools:context=".view.CreateAccountFragment"
     android:layout_height="match_parent">
     <androidx.cardview.widget.CardView
@@ -15,7 +15,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/theme1_3"
+            android:background="?attr/loginColor1"
             android:text="CREATE ACCOUNT"
             android:textAlignment="center"
             android:padding="20dp"
@@ -33,6 +33,7 @@
         android:layout_marginEnd="46dp"
         android:paddingLeft="5dp"
         android:background="@drawable/round_border"
+        android:backgroundTint="?attr/textColorLight"
         android:drawableLeft="@mipmap/ic_profile"
         android:hint="Nume" />
 
@@ -48,6 +49,7 @@
         android:layout_marginEnd="44dp"
         android:paddingLeft="5dp"
         android:background="@drawable/round_border"
+        android:backgroundTint="?attr/textColorLight"
         android:drawableLeft="@mipmap/ic_prenume"
         android:hint="Prenume"
         />
@@ -63,6 +65,7 @@
         android:layout_marginEnd="44dp"
         android:paddingLeft="5dp"
         android:background="@drawable/round_border"
+        android:backgroundTint="?attr/textColorLight"
         android:drawableLeft="@mipmap/ic_email"
         android:hint="Email"
         android:inputType="textEmailAddress"/>
@@ -78,6 +81,8 @@
         android:layout_marginEnd="44dp"
         android:paddingLeft="5dp"
         android:background="@drawable/round_border"
+        android:backgroundTint="?attr/textColorLight"
+
         android:drawableLeft="@mipmap/ic_prenume"
         android:hint="Nume utilizator" />
     <EditText
@@ -92,6 +97,7 @@
         android:layout_marginEnd="44dp"
         android:paddingLeft="5dp"
         android:background="@drawable/round_border"
+        android:backgroundTint="?attr/textColorLight"
         android:drawableLeft="@mipmap/ic_password"
         android:hint="Parola"
         android:inputType="textPassword" />
@@ -107,6 +113,7 @@
         android:layout_marginEnd="44dp"
         android:paddingLeft="5dp"
         android:background="@drawable/round_border"
+        android:backgroundTint="?attr/textColorLight"
         android:drawableLeft="@mipmap/ic_password"
         android:hint="Parola"
         android:inputType="textPassword" />
@@ -121,7 +128,7 @@
         android:layout_marginStart="56dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="48dp"
-        app:cardBackgroundColor="@color/theme1_3"
+        app:cardBackgroundColor="?attr/loginColor1"
         android:onClick="authentication"
         app:cardCornerRadius="30dp"
         app:layout_constraintBottom_toBottomOf="parent"

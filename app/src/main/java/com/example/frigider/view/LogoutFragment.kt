@@ -22,11 +22,14 @@ class LogoutFragment: Fragment(){
     ): View? {
         logoutViewModel =
             ViewModelProviders.of(this).get(LogoutViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_send, container, false)
-        val textView: TextView = root.findViewById(R.id.text_send)
-        logoutViewModel.text.observe(this, Observer {
-            textView.text = it
-        })
+        val root = inflater.inflate(R.layout.fragment_logout, container, false)
+
         return root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        getActivity()!!.finish();
+        System.exit(0);
     }
 }

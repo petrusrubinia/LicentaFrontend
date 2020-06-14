@@ -1,4 +1,4 @@
-package com.example.frigider.repository.Adapter
+package com.example.frigider.service.Adapter
 
 
 import android.content.Context

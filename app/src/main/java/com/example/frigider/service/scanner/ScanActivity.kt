@@ -1,14 +1,9 @@
-package com.example.frigider.repository.scanner
+package com.example.frigider.service.scanner
 
-import android.Manifest
 import android.app.Activity
 import android.content.Intent
-import android.content.pm.PackageManager
-import android.hardware.Camera
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
 import com.google.zxing.Result
 import me.dm7.barcodescanner.zxing.ZXingScannerView
 
@@ -24,7 +19,6 @@ class ScanActivity : AppCompatActivity(), ZXingScannerView.ResultHandler {
 
         mScannerView = ZXingScannerView(this)
         setContentView(mScannerView) // Set the scanner view as the content view
-
 
     }
 

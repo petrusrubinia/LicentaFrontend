@@ -4,11 +4,8 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.example.frigider.model.Product.Product
-import com.example.frigider.repository.api.CategoryApi
-import com.example.frigider.repository.api.ProductApi
-import com.example.frigider.repository.api.TemperaturaApi
-import com.example.frigider.repository.retrofit.RetrofitProvider
+import com.example.frigider.dataAcces.api.TemperaturaApi
+import com.example.frigider.dataAcces.retrofit.RetrofitProvider
 import kotlinx.coroutines.launch
 
 

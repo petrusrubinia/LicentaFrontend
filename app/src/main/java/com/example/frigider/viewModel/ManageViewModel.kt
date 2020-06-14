@@ -4,10 +4,9 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.example.frigider.model.Product.Product
 import com.example.frigider.model.Product.ProductWithId
-import com.example.frigider.repository.api.ProductApi
-import com.example.frigider.repository.retrofit.RetrofitProvider
+import com.example.frigider.dataAcces.api.ProductApi
+import com.example.frigider.dataAcces.retrofit.RetrofitProvider
 import kotlinx.coroutines.launch
 
 
@@ -18,8 +17,7 @@ class ManageViewModel (application: Application): AndroidViewModel(application) 
 
     fun getListOfProducts() {
         viewModelScope.launch {
-            //println("aaaaaaaaaaaaaaaaaaaaaadddddddddddddd viiiiiiiiiieeeewwwwwwwww moooooooodeeeeeeell")
-            val list = manageService.getProducts()
+            val list = manageService.getProducts(LoginViewModel.userAccou!!.id)
             liveData.value = list
         }
 

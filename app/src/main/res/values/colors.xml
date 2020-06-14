@@ -34,6 +34,10 @@
     <color name="theme3_8">#014749</color>
     <color name="theme3_9">#00285B</color>
     <color name="theme3_10">#090538</color>
+    <color name="theme3_11">#FAF8F0</color>
+    <color name="theme3_12">#F5D7EA</color>
+
+
 
 
 
@@ -46,7 +50,7 @@
     <color name="theme4_7">#94D2BD</color>
     <color name="theme4_8">#009496</color>
     <color name="theme4_9">#005F73</color>
-    <color name="theme4_10">#012233</color>
+    <color name="theme4_10">#000000</color>
 
 
     <color name="theme5_1">#736D61</color>

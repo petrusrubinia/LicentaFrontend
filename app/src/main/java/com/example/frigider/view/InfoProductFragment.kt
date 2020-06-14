@@ -1,14 +1,12 @@
 package com.example.frigider.view
 
-import android.app.AlertDialog
-import android.content.DialogInterface
+import android.content.Context
 import android.os.Build
 import android.os.Bundle
 import android.view.*
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -16,8 +14,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.frigider.R
 import com.example.frigider.model.Product.ExpiredProduct
-import com.example.frigider.repository.Adapter.ExpiredElemsAdapter
-import com.example.frigider.repository.Adapter.ItemListAdapter
+import com.example.frigider.service.Adapter.ExpiredElemsAdapter
 import com.example.frigider.viewModel.InfoProductViewModel
 import com.github.mikephil.charting.charts.BarChart
 import com.github.mikephil.charting.components.YAxis
@@ -29,7 +26,6 @@ import com.github.mikephil.charting.highlight.Highlight
 import com.github.mikephil.charting.listener.ChartTouchListener
 import com.github.mikephil.charting.listener.OnChartGestureListener
 import kotlinx.android.synthetic.main.fragment_info_produts.*
-import kotlinx.android.synthetic.main.fragment_main.*
 
 
 class InfoProductFragment : Fragment() {
@@ -48,7 +44,6 @@ class InfoProductFragment : Fragment() {
         val root = inflater.inflate(R.layout.fragment_info_produts, container, false)
 
         infoProductViewModel = ViewModelProvider(this).get(InfoProductViewModel::class.java)
-        println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa intraaaaaaaaaaattttttttttt baieeeeeeeeetti")
         setHasOptionsMenu(true);
 
         infoProductViewModel.liveData.observe(this, Observer {
@@ -65,21 +60,97 @@ class InfoProductFragment : Fragment() {
 
     private fun setBarChart(root: View?, expiredProduct: MutableList<ExpiredProduct>) {
         val barChart: BarChart = root!!.findViewById(R.id.id_barChart)
-
-        val color0 = context?.let { ContextCompat.getColor(it, R.color.theme1_4) }
-        val color1 = context?.let { ContextCompat.getColor(it, R.color.theme1_1) }
-        val color2 = context?.let { ContextCompat.getColor(it, R.color.theme1_2) }
-        val color3 = context?.let { ContextCompat.getColor(it, R.color.theme1_5) }
-        val color4 = context?.let { ContextCompat.getColor(it, R.color.theme1_3) }
-        val color5 = context?.let { ContextCompat.getColor(it, R.color.theme1_6) }
-        val color6 = context?.let { ContextCompat.getColor(it, R.color.theme1_7) }
-        val color7 = context?.let { ContextCompat.getColor(it, R.color.theme1_8) }
-        val color8 = context?.let { ContextCompat.getColor(it, R.color.theme1_9) }
-        val color9 = context?.let { ContextCompat.getColor(it, R.color.theme1_10) }
-        val color10 = context?.let { ContextCompat.getColor(it, R.color.theme1_11) }
-        val color11 = context?.let { ContextCompat.getColor(it, R.color.theme1_1) }
-        val color12 = context?.let { ContextCompat.getColor(it, R.color.theme1_2) }
-
+        var color0:Int?
+        var color1:Int?
+        var color2:Int?
+        var color3:Int?
+        var color4:Int?
+        var color5:Int?
+        var color6:Int?
+        var color7:Int?
+        var color8:Int?
+        var color9:Int?
+        var color10:Int?
+        var color11:Int?
+        var color12:Int?
+        if(getThemeId() == R.style.AppTheme1) {
+            color0 = context?.let { ContextCompat.getColor(it, R.color.theme1_4) }
+            color1 = context?.let { ContextCompat.getColor(it, R.color.theme1_1) }
+            color2 = context?.let { ContextCompat.getColor(it, R.color.theme1_2) }
+            color3 = context?.let { ContextCompat.getColor(it, R.color.theme1_5) }
+            color4 = context?.let { ContextCompat.getColor(it, R.color.theme1_3) }
+            color5 = context?.let { ContextCompat.getColor(it, R.color.theme1_6) }
+            color6 = context?.let { ContextCompat.getColor(it, R.color.theme1_7) }
+            color7 = context?.let { ContextCompat.getColor(it, R.color.theme1_8) }
+            color8 = context?.let { ContextCompat.getColor(it, R.color.theme1_9) }
+            color9 = context?.let { ContextCompat.getColor(it, R.color.theme1_10) }
+            color10 = context?.let { ContextCompat.getColor(it, R.color.theme1_3) }
+            color11 = context?.let { ContextCompat.getColor(it, R.color.theme1_6) }
+            color12 = context?.let { ContextCompat.getColor(it, R.color.theme1_1) }
+        }else
+            if(getThemeId() == R.style.AppTheme2)
+            {
+                color0 = context?.let { ContextCompat.getColor(it, R.color.theme2_4) }
+                color1 = context?.let { ContextCompat.getColor(it, R.color.theme2_1) }
+                color2 = context?.let { ContextCompat.getColor(it, R.color.theme2_2) }
+                color3 = context?.let { ContextCompat.getColor(it, R.color.theme2_5) }
+                color4 = context?.let { ContextCompat.getColor(it, R.color.theme2_3) }
+                color5 = context?.let { ContextCompat.getColor(it, R.color.theme2_6) }
+                color6 = context?.let { ContextCompat.getColor(it, R.color.theme2_7) }
+                color7 = context?.let { ContextCompat.getColor(it, R.color.theme2_8) }
+                color8 = context?.let { ContextCompat.getColor(it, R.color.theme2_9) }
+                color9 = context?.let { ContextCompat.getColor(it, R.color.theme2_10) }
+                color10 = context?.let { ContextCompat.getColor(it, R.color.theme2_3) }
+                color11 = context?.let { ContextCompat.getColor(it, R.color.theme2_6) }
+                color12 = context?.let { ContextCompat.getColor(it, R.color.theme2_1) }
+            }
+            else if(getThemeId() == R.style.AppTheme3)
+            {
+                color0 = context?.let { ContextCompat.getColor(it, R.color.theme3_4) }
+                color1 = context?.let { ContextCompat.getColor(it, R.color.theme3_1) }
+                color2 = context?.let { ContextCompat.getColor(it, R.color.theme3_2) }
+                color3 = context?.let { ContextCompat.getColor(it, R.color.theme3_5) }
+                color4 = context?.let { ContextCompat.getColor(it, R.color.theme3_3) }
+                color5 = context?.let { ContextCompat.getColor(it, R.color.theme3_6) }
+                color6 = context?.let { ContextCompat.getColor(it, R.color.theme3_7) }
+                color7 = context?.let { ContextCompat.getColor(it, R.color.theme3_8) }
+                color8 = context?.let { ContextCompat.getColor(it, R.color.theme3_9) }
+                color9 = context?.let { ContextCompat.getColor(it, R.color.theme3_10) }
+                color10 = context?.let { ContextCompat.getColor(it, R.color.theme3_3) }
+                color11 = context?.let { ContextCompat.getColor(it, R.color.theme3_6) }
+                color12 = context?.let { ContextCompat.getColor(it, R.color.theme3_1) }
+            }
+            else if(getThemeId() == R.style.AppTheme4)
+            {
+                color0 = context?.let { ContextCompat.getColor(it, R.color.theme4_4) }
+                color1 = context?.let { ContextCompat.getColor(it, R.color.theme4_1) }
+                color2 = context?.let { ContextCompat.getColor(it, R.color.theme4_2) }
+                color3 = context?.let { ContextCompat.getColor(it, R.color.theme4_5) }
+                color4 = context?.let { ContextCompat.getColor(it, R.color.theme4_3) }
+                color5 = context?.let { ContextCompat.getColor(it, R.color.theme4_6) }
+                color6 = context?.let { ContextCompat.getColor(it, R.color.theme4_7) }
+                color7 = context?.let { ContextCompat.getColor(it, R.color.theme4_8) }
+                color8 = context?.let { ContextCompat.getColor(it, R.color.theme4_9) }
+                color9 = context?.let { ContextCompat.getColor(it, R.color.theme4_10) }
+                color10 = context?.let { ContextCompat.getColor(it, R.color.theme4_3) }
+                color11 = context?.let { ContextCompat.getColor(it, R.color.theme4_6) }
+                color12 = context?.let { ContextCompat.getColor(it, R.color.theme4_1) }
+            }
+            else{
+                color0 = context?.let { ContextCompat.getColor(it, R.color.theme5_4) }
+                color1 = context?.let { ContextCompat.getColor(it, R.color.theme5_1) }
+                color2 = context?.let { ContextCompat.getColor(it, R.color.theme5_2) }
+                color3 = context?.let { ContextCompat.getColor(it, R.color.theme5_5) }
+                color4 = context?.let { ContextCompat.getColor(it, R.color.theme5_3) }
+                color5 = context?.let { ContextCompat.getColor(it, R.color.theme5_6) }
+                color6 = context?.let { ContextCompat.getColor(it, R.color.theme5_7) }
+                color7 = context?.let { ContextCompat.getColor(it, R.color.theme5_8) }
+                color8 = context?.let { ContextCompat.getColor(it, R.color.theme5_9) }
+                color9 = context?.let { ContextCompat.getColor(it, R.color.theme5_10) }
+                color10 = context?.let { ContextCompat.getColor(it, R.color.theme5_3) }
+                color11 = context?.let { ContextCompat.getColor(it, R.color.theme5_6) }
+                color12 = context?.let { ContextCompat.getColor(it, R.color.theme5_1) }
+            }
         val MY_COLORS = intArrayOf(
             color0!!,
             color1!!,
@@ -162,11 +233,13 @@ class InfoProductFragment : Fragment() {
 
             override fun onChartSingleTapped(me: MotionEvent) {
                 Toast.makeText(activity, "Single", Toast.LENGTH_SHORT).show()
-                val h: Highlight =
-                    barChart.getHighlightByTouchPoint(me.x, me.y)
-                println("->>>>"+h.x)
-                current_position_list = h.x.toInt()
-                setListExpiredProduct(expiredProduct[h.x.toInt()])
+                if(barChart.getHighlightByTouchPoint(me.x, me.y)!= null) {
+                    val h: Highlight =
+                        barChart.getHighlightByTouchPoint(me.x, me.y)
+                    println("->>>>" + h.x)
+                    current_position_list = h.x.toInt()
+                    setListExpiredProduct(expiredProduct[h.x.toInt()])
+                }
             }
 
             override fun onChartGestureStart(
@@ -188,7 +261,19 @@ class InfoProductFragment : Fragment() {
         barDataSet.colors = colors2
         barChart.isDoubleTapToZoomEnabled = false
     }
-
+    fun getThemeId():Int {
+        try
+        {
+            val wrapper = Context::class.java
+            val method = wrapper!!.getMethod("getThemeResId")
+            method.setAccessible(true)
+            return method.invoke(context) as Int
+        }
+        catch (e:Exception) {
+            e.printStackTrace()
+        }
+        return 0
+    }
     private fun setListExpiredProduct(expiredProduct: ExpiredProduct) {
         id_recycler_expired.setHasFixedSize(true)
         val layoutManager = LinearLayoutManager(context)

@@ -3,10 +3,10 @@ package com.example.frigider.viewModel
 
 import android.app.Application
 import androidx.lifecycle.*
-import com.example.frigider.model.Product.Product
 import com.example.frigider.model.Product.ProductWithId
-import com.example.frigider.repository.api.ProductApi
-import com.example.frigider.repository.retrofit.RetrofitProvider
+import com.example.frigider.dataAcces.api.ProductApi
+import com.example.frigider.dataAcces.retrofit.RetrofitProvider
+import com.example.frigider.model.Category.Category
 import kotlinx.coroutines.launch
 
 class PageViewModel(application: Application) : AndroidViewModel(application) {
@@ -19,7 +19,6 @@ class PageViewModel(application: Application) : AndroidViewModel(application) {
     fun setIndex(index: Int) {
         _index.value = index
     }
-
     private val manageService = RetrofitProvider.createService(application, ProductApi::class.java)
     private val _list = MutableLiveData<List<ProductWithId>?>()
     var liveData: LiveData<List<ProductWithId>?> = Transformations.map(_list) {
@@ -28,7 +27,8 @@ class PageViewModel(application: Application) : AndroidViewModel(application) {
 
     fun getListOfProducts(index: Int) {
         viewModelScope.launch {
-            var list = manageService.getProducts()
+            var list = manageService.getProducts(LoginViewModel.userAccou!!.id)
+            //listProduct = list
             println(index)
             when (index) {
                 1 -> list = list.filter { product ->
@@ -37,20 +37,21 @@ class PageViewModel(application: Application) : AndroidViewModel(application) {
                     )
                 }
                 2 -> list = list.filter { product ->
-                    product.categorie.equals("lactate")
+                    product.categorie.equals("lactate") || product.categorie.equals("gatita")
                 }
                 3 -> list = list.filter { product ->
-                    product.categorie.equals("fastfood")
+                    product.categorie.equals("fastfood") || product.categorie.equals("dulciuri")
                 }
-                4 -> list = list.filter { product -> product.categorie.equals("dulciuri") }
-                5 -> list = list.filter { product -> product.categorie.equals("gatita") }
+                4 -> list = list.filter { product -> product.categorie.equals("lichide") }
+                5 -> list = list.filter { product -> product.categorie.equals("altele")}
                 else -> { // Note the block
                     print("x is neither 1 nor 2")
                 }
             }
 
-            if (_list.value != list)
+            if (_list.value != list) {
                 _list.value = list
+            }
         }
     }
 

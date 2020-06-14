@@ -1,4 +1,4 @@
-package com.example.frigider.repository.Adapter
+package com.example.frigider.service.Adapter
 
 import android.app.AlertDialog
 import android.content.Context
@@ -29,6 +29,9 @@ class ItemListAdapter(
         holder.bind(bookList[position], listener)
         holder.delete_button.setOnClickListener {
 
+//            placeholderFragment.deleteElement(holder.adapterPosition)
+//            bookList.removeAt(holder.adapterPosition)
+//            notifyItemRemoved(holder.adapterPosition)
             val builder = AlertDialog.Builder(context)
             builder.setMessage("Esti sigur ca vrei sa elimini acest produs?")
             builder.setPositiveButton(android.R.string.yes, object: DialogInterface.OnClickListener {

@@ -13,9 +13,8 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.frigider.R
-import com.example.frigider.model.Product.Product
 import com.example.frigider.model.Product.ProductWithId
-import com.example.frigider.repository.Adapter.ItemListAdapter
+import com.example.frigider.service.Adapter.ItemListAdapter
 import com.example.frigider.viewModel.PageViewModel
 import kotlinx.android.synthetic.main.fragment_main.*
 
@@ -48,7 +47,6 @@ class PlaceholderFragment : Fragment() {
         pageViewModel.liveData.observe(this, Observer<List<ProductWithId>?> {
                 listOfProducts = it!!
                 intrat = true
-                println("MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM")
                 setupRecycler(listOfProducts as ArrayList<ProductWithId>,context)
         })
 
@@ -67,7 +65,7 @@ class PlaceholderFragment : Fragment() {
     }
 
     fun deleteElement(adapterPosition: Int) {
-        println(listOfProducts[adapterPosition])
+        //println(listOfProducts[adapterPosition])
         pageViewModel.deleteElement(listOfProducts[adapterPosition])
     }
 
@@ -75,8 +73,8 @@ class PlaceholderFragment : Fragment() {
         var context = activity as AppCompatActivity
         var fragment : Fragment = AddFragment()
         var bundle: Bundle = Bundle()
-        bundle.putSerializable("produs",listOfProducts[adapterPosition])
-        fragment.arguments =bundle
+        bundle.putSerializable("edit",listOfProducts[adapterPosition])
+        fragment.arguments = bundle
         context.replaceFragment(fragment)
         println(listOfProducts[adapterPosition])
     }

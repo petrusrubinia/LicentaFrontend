@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/card_view"
     android:orientation="horizontal"
-    android:background="@color/theme1_10"
+    android:background="?attr/cardListColor"
     android:layout_margin="10dp">
 
     <LinearLayout
@@ -17,7 +17,7 @@
             android:id="@+id/id_image"
             android:layout_width="84dp"
             android:layout_height="match_parent"
-            android:background="@drawable/oval_2"
+            android:background="@drawable/oval_4"
              />
         <TextView
             android:id="@+id/title"
@@ -27,7 +27,7 @@
             android:text="Banane"
             android:paddingLeft="10dp"
             android:textStyle="bold"
-            android:textColor="@color/theme1_9"
+            android:textColor="?attr/textColorDark"
             android:gravity="center_vertical"
             android:textSize="20sp"/>
 
@@ -37,7 +37,7 @@
             android:layout_height="54dp"
             android:layout_marginRight="5dp"
             android:clickable="true"
-            app:cardBackgroundColor="@color/theme1_6"
+            app:cardBackgroundColor="?attr/editColor"
             app:cardCornerRadius="60dp"
             android:foreground="?android:attr/selectableItemBackground">
 
@@ -59,7 +59,7 @@
             android:layout_width="54dp"
             android:layout_height="54dp"
             android:clickable="true"
-            app:cardBackgroundColor="@color/theme1_4"
+            app:cardBackgroundColor="?attr/deleteColor"
             app:cardCornerRadius="60dp"
             android:foreground="?android:attr/selectableItemBackground">
 

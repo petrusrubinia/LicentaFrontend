@@ -2,31 +2,36 @@ package com.example.frigider.view;
 
 import android.Manifest
 import android.app.Activity
+import android.app.Notification
+import android.app.NotificationManager
+import android.content.Context
 import androidx.fragment.app.Fragment
 
-import android.app.FragmentManager
-import android.app.FragmentTransaction
-import android.content.ClipData
-import android.content.Context
-import android.content.ContextWrapper
 import android.content.Intent
+import android.content.SharedPreferences
 import android.content.pm.PackageManager
+import android.content.res.Configuration
+import android.content.res.Resources
 import android.graphics.*
 import android.media.ExifInterface
 import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
+import android.preference.PreferenceActivity
+import android.preference.PreferenceManager
 import android.provider.MediaStore
+import android.provider.SyncStateContract
+import android.renderscript.RenderScript
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
-import android.widget.Button
-import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.Toolbar
 import androidx.core.app.ActivityCompat
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import androidx.drawerlayout.widget.DrawerLayout
@@ -36,11 +41,9 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.frigider.R
-import com.example.frigider.repository.scanner.ScanActivity
-import com.example.frigider.viewModel.AddViewModel
+import com.example.frigider.service.scanner.ScanActivity
+import com.example.frigider.view.Notification.Companion.CHANNEL_1
 import com.google.android.material.navigation.NavigationView
-import kotlinx.android.synthetic.main.fragment_home.*
-import kotlinx.android.synthetic.main.nav_header_navigation.*
 import java.io.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -56,18 +59,31 @@ class MainActivity : AppCompatActivity() {
         private const val CAMERA_REQUEST = 1888
         private const val REQUEST_ID_MULTIPLE_PERMISSIONS = 1999
         private const val ADD_CODE = 1
-        private const val REQUEST_IMAGE_CAPTURE = 3
+        lateinit var shared: SharedPreferences
+        public fun changeTheme(id:String){
+            val editor = shared.edit()
+            editor.remove("theme")
+            editor.commit()
+            editor.putString("theme",id)
+            editor.commit()
+
+        }
     }
     lateinit var currentPhotoPath: String
     lateinit var photoURI: Uri
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+        PreferenceManager.setDefaultValues(this, R.xml.pref_main, false)
+        this.setTheme(getUserTheme())
+        shared = PreferenceManager.getDefaultSharedPreferences(this);
+       super.onCreate(savedInstanceState)
+
         setContentView(R.layout.activity_navigation)
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
         checkAndRequestPermissions()
-
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         val navView: NavigationView = findViewById(R.id.nav_view)
         val navController = findNavController(R.id.nav_host_fragment)
@@ -83,7 +99,41 @@ class MainActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
 
 
+
+
     }
+
+    fun getTheme(context:Context, theme1:Int,theme2:Int, theme3:Int,theme4:Int,theme5:Int):Int {
+        shared = PreferenceManager.getDefaultSharedPreferences(this)
+        var theme = shared.getString("theme", "2131755017")!!.toInt()
+        if (theme == 2131755014)
+        {
+            return theme1
+        }
+        else if (theme == 2131755015)
+        {
+            return theme2
+        }
+        else if(theme == 2131755016)
+        {
+            return theme3
+        }
+        else if(theme == 2131755017)
+        {
+            return theme4
+        }
+        else
+        {
+            return theme5
+        }
+    }
+    private fun getUserTheme():Int {
+        return getTheme(this, R.style.AppTheme1, R.style.AppTheme2, R.style.AppTheme3, R.style.AppTheme4,R.style.AppTheme5)
+    }
+
+
+
+
 
     private fun checkAndRequestPermissions(): Boolean {
         var cameraPermission: Int = ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA )
@@ -139,10 +189,8 @@ class MainActivity : AppCompatActivity() {
                 println("detect")
                 if (checkAndRequestPermissions())
                 {
+
                     dispatchTakePictureIntent()
-//                    val cameraIntent =
-//                        Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-//                    startActivityForResult(cameraIntent, CAMERA_REQUEST)
 
                 }
                 else
@@ -211,12 +259,7 @@ class MainActivity : AppCompatActivity() {
         if (requestCode == CAMERA_REQUEST && resultCode == Activity.RESULT_OK) {
             // val bitmapImage = data!!.extras!!["data"] as Bitmap?
             var path: String = ""
-            //path = compressImage(photoURI.toString())
             println("path ->>>>>> " + photoURI.path)
-            //if(bitmapImage != null) {
-            //path = saveToInternalStorage(bitmapImage!!)
-            //println("!!-> $path")
-
             path = compressImage(
                 "/storage/emulated/0/Android/data/com.example.frigider/files/Pictures/" + photoURI.path!!.split(
                     "/"
@@ -224,9 +267,9 @@ class MainActivity : AppCompatActivity() {
             )
 
 
-            var fragment: AddFragment = AddFragment()
+            var fragment: DetectedElemsFragment = DetectedElemsFragment()
             var bundle: Bundle = Bundle()
-            bundle.putString("path", path)
+            bundle.putString("detect", path)
             fragment.arguments = bundle
             this.replaceFragment(fragment)
 

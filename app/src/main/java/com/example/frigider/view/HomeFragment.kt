@@ -1,13 +1,19 @@
 package com.example.frigider.view
 
 import android.content.ClipData
+import android.content.Context
 import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.cardview.widget.CardView
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -23,7 +29,10 @@ import com.github.mikephil.charting.utils.ColorTemplate
 class HomeFragment : Fragment() {
 
     private lateinit var homeViewModel: HomeViewModel
+    lateinit var notificationManager: NotificationManagerCompat
+    lateinit var  context: AppCompatActivity
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -31,8 +40,9 @@ class HomeFragment : Fragment() {
     ): View? {
         val root = inflater.inflate(R.layout.fragment_home, container, false)
         homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
-        val context = activity as AppCompatActivity
+        context = activity as AppCompatActivity
 
+        notificationManager = NotificationManagerCompat.from(context)
 
         var countCategory=  mutableListOf<CountCategory>()
         homeViewModel.liveData.observe(this, Observer {
@@ -73,21 +83,83 @@ class HomeFragment : Fragment() {
 
         return root
     }
-
+    fun sendNotification(message: String)
+    {
+        var notification: android.app.Notification = NotificationCompat.Builder(context,
+            Notification.CHANNEL_1
+        )
+            .setSmallIcon(R.drawable.ic_home)
+            .setContentTitle("Informatii produse")
+            .setContentText(message)
+            .setPriority(NotificationCompat.PRIORITY_HIGH)
+            .setCategory(NotificationCompat.CATEGORY_MESSAGE)
+            .build()
+        notificationManager.notify(1,notification)
+    }
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun setPieChart(
         root: View,
         countCategory: MutableList<CountCategory>
     ) {
         val pieChart: PieChart = root.findViewById(R.id.chart)
         val pieData = mutableListOf<PieEntry>()
+        var color0:Int?
+        var color1:Int?
+        var color2:Int?
+        var color3:Int?
+        var color4:Int?
+        var color5:Int?
+        var color6:Int?
+        if(getThemeId() == R.style.AppTheme1) {
+            color0 = context?.let { ContextCompat.getColor(it, R.color.theme1_4) }
+            color1 = context?.let { ContextCompat.getColor(it, R.color.theme1_1) }
+            color2 = context?.let { ContextCompat.getColor(it, R.color.theme1_2) }
+            color3 = context?.let { ContextCompat.getColor(it, R.color.theme1_5) }
+            color4 = context?.let { ContextCompat.getColor(it, R.color.theme1_3) }
+            color5 = context?.let { ContextCompat.getColor(it, R.color.theme1_6) }
+        }else
+            if(getThemeId()== R.style.AppTheme2)
+            {
+                color0 = context?.let { ContextCompat.getColor(it, R.color.theme2_4) }
+                color1 = context?.let { ContextCompat.getColor(it, R.color.theme2_7) }
+                color2 = context?.let { ContextCompat.getColor(it, R.color.theme2_2) }
+                color3 = context?.let { ContextCompat.getColor(it, R.color.theme2_5) }
+                color4 = context?.let { ContextCompat.getColor(it, R.color.theme2_3) }
+                color5 = context?.let { ContextCompat.getColor(it, R.color.theme2_6) }
+            }
+        else if(getThemeId() == R.style.AppTheme3)
+            {
+                color0 = context?.let { ContextCompat.getColor(it, R.color.theme3_4) }
+                color1 = context?.let { ContextCompat.getColor(it, R.color.theme3_1) }
+                color2 = context?.let { ContextCompat.getColor(it, R.color.theme3_2) }
+                color3 = context?.let { ContextCompat.getColor(it, R.color.theme3_5) }
+                color4 = context?.let { ContextCompat.getColor(it, R.color.theme3_3) }
+                color5 = context?.let { ContextCompat.getColor(it, R.color.theme3_6) }
+            }
+        else if(getThemeId() == R.style.AppTheme4)
+            {
+                color0 = context?.let { ContextCompat.getColor(it, R.color.theme4_4) }
+                color1 = context?.let { ContextCompat.getColor(it, R.color.theme4_1) }
+                color2 = context?.let { ContextCompat.getColor(it, R.color.theme4_2) }
+                color3 = context?.let { ContextCompat.getColor(it, R.color.theme4_5) }
+                color4 = context?.let { ContextCompat.getColor(it, R.color.theme4_3) }
+                color5 = context?.let { ContextCompat.getColor(it, R.color.theme4_6) }
 
-        val color0 = context?.let { ContextCompat.getColor(it, R.color.theme1_4) }
-        val color1 = context?.let { ContextCompat.getColor(it, R.color.theme1_1) }
-        val color2 = context?.let { ContextCompat.getColor(it, R.color.theme1_2) }
-        val color3 = context?.let { ContextCompat.getColor(it, R.color.theme1_5) }
-        val color4 = context?.let { ContextCompat.getColor(it, R.color.theme1_3) }
-        val color5 = context?.let { ContextCompat.getColor(it, R.color.theme1_6) }
-
+            }
+        else{
+                color0 = context?.let { ContextCompat.getColor(it, R.color.theme5_4) }
+                color1 = context?.let { ContextCompat.getColor(it, R.color.theme5_1) }
+                color2 = context?.let { ContextCompat.getColor(it, R.color.theme5_2) }
+                color3 = context?.let { ContextCompat.getColor(it, R.color.theme5_5) }
+                color4 = context?.let { ContextCompat.getColor(it, R.color.theme5_3) }
+                color5 = context?.let { ContextCompat.getColor(it, R.color.theme5_6) }
+            }
+        println("Actual--->>" + getThemeId())
+        println("Theme1----->"+ R.style.AppTheme1)
+        println("Theme2----->"+ R.style.AppTheme2)
+        println("Theme3----->"+ R.style.AppTheme3)
+        println("Theme4----->"+ R.style.AppTheme4)
+        println("Theme5----->"+ R.style.AppTheme5)
 
         val MY_COLORS = intArrayOf(
 
@@ -128,9 +200,32 @@ class HomeFragment : Fragment() {
         pieChart.transparentCircleRadius = 40F
         pieChart.data = pieData2
 
+        homeViewModel.expiredProducts.observe(this, Observer {
+            homeViewModel.getExpiredProduct()
+            var text : String = ""
+            if(it!= null)
+            {
+                for (x in it)
+                    text += x +"\n"
+                sendNotification(text)
+            }
+
+        })
 
 
     }
-
+    fun getThemeId():Int {
+        try
+        {
+            val wrapper = Context::class.java
+            val method = wrapper!!.getMethod("getThemeResId")
+            method.setAccessible(true)
+            return method.invoke(context) as Int
+        }
+        catch (e:Exception) {
+            e.printStackTrace()
+        }
+        return 0
+    }
 
 }

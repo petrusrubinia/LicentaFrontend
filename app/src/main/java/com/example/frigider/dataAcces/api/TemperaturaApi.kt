@@ -1,4 +1,4 @@
-package com.example.frigider.repository.api
+package com.example.frigider.dataAcces.api
 
 import retrofit2.http.GET
 

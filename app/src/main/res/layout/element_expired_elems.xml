@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/card_view_expired"
     android:orientation="horizontal"
-    android:background="@color/theme1_10"
+    android:background="?attr/cardListColor"
     android:layout_margin="10dp">
 
     <LinearLayout
@@ -17,7 +17,7 @@
             android:id="@+id/id_image_expired"
             android:layout_width="84dp"
             android:layout_height="match_parent"
-            android:background="@drawable/oval_3"
+            android:background="@drawable/oval_4"
             />
         <LinearLayout
             android:layout_width="230dp"
@@ -30,7 +30,7 @@
                 android:layout_height="wrap_content"
                 android:text="Banane"
                 android:textStyle="bold"
-                android:textColor="@color/theme1_9"
+                android:textColor="?attr/textColorDark"
                 android:gravity="center_vertical"
                 android:textSize="20sp"/>
             <TextView
@@ -38,7 +38,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Data expirare: 03-04-2020"
-                android:textColor="@color/theme1_9"
+                android:textColor="?attr/textColorDark"
                 android:gravity="center_vertical"
                 />
 
@@ -50,7 +50,7 @@
             android:layout_width="54dp"
             android:layout_height="54dp"
             android:clickable="true"
-            app:cardBackgroundColor="@color/theme1_4"
+            app:cardBackgroundColor="?attr/deleteColor"
             app:cardCornerRadius="60dp"
             android:foreground="?android:attr/selectableItemBackground">
 

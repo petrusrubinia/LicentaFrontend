@@ -37,10 +37,12 @@ class TempFragment : Fragment() {
 
 
         tempViewModel.optimTemp.observe(this, Observer {
+            tempViewModel.getOptimTemp()
             if(it!= null)
                 optimTemp = it
         })
         tempViewModel.actualTemp.observe(this, Observer {
+            tempViewModel.getActualTemp()
             if(it != null)
                 actualTemp = it
         })

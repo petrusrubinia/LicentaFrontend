@@ -1,25 +1,179 @@
 <resources>
     <!-- theme1-->
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+
+
+    <style name="AppTheme2" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/theme1_2</item>
+        <item name="darkBackgroundColor">@color/theme2_8</item>
+        <item name="lightBackgroundColor">@color/theme2_4</item>
+        <item name="colorButtonNormal">@color/theme2_6</item>
+        <item name="colorPrimaryDark">@color/theme1_9</item>
+        <item name="colorAccent">@color/theme1_9</item>
+        <item name="background">@color/theme2_7</item>
+        <item name="cardBackgroundcolor">@color/theme1_11</item>
+        <item name="textColorDark">@color/theme1_9</item>
+        <item name="textColorLight">@color/theme1_11</item>
+        <item name="cardListColor">@color/theme1_10</item>
+        <item name="buttoncolor">@color/theme1_7</item>
+        <item name="deleteColor">@color/theme2_7</item>
+        <item name="editColor">@color/theme2_6</item>
+        <item name="barColor">@color/theme2_8</item>
+        <item name="loginColor1">@color/theme2_8</item>
+        <item name="loginColor2">@color/theme2_6</item>
+        <item name="loginColor3">@color/theme1_10</item>
+        <item name="oval1">@color/theme2_7</item>
+        <item name="oval2">@color/theme2_8</item>
+        <item name="oval3">@color/theme2_6</item>
+        <item name="oval4">@color/theme2_2</item>
+        <item name="category1">@color/theme2_1</item>
+        <item name="category2">@color/theme2_2</item>
+        <item name="category3">@color/theme2_3</item>
+        <item name="category4">@color/theme2_4</item>
+        <item name="category5">@color/theme2_5</item>
+        <item name="category6">@color/theme2_6</item>
+        <item name="category7">@color/theme2_7</item>
+
+    </style>
+    <style name="AppTheme1" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="darkBackgroundColor">@color/theme1_2</item>
+        <item name="lightBackgroundColor">@color/theme1_6</item>
+        <item name="colorButtonNormal">@color/theme1_2</item>
         <item name="colorPrimaryDark">@color/theme1_1</item>
         <item name="colorAccent">@color/theme1_9</item>
         <item name="background">@color/theme1_3</item>
-        <item name="cardgroundcolor">@color/theme1_3</item>
-        <item name="textColor">@color/theme1_9</item>
-        <item name="tintcolor">@color/theme1_3</item>
+        <item name="cardBackgroundcolor">@color/theme1_11</item>
+        <item name="textColorDark">@color/theme1_9</item>
+        <item name="textColorLight">@color/theme1_11</item>
+        <item name="cardListColor">@color/theme1_10</item>
         <item name="buttoncolor">@color/theme1_7</item>
+        <item name="deleteColor">@color/theme1_4</item>
+        <item name="editColor">@color/theme1_6</item>
+        <item name="barColor">@color/theme1_2</item>
+        <item name="loginColor1">@color/theme1_3</item>
+        <item name="loginColor2">@color/theme1_5</item>
+        <item name="loginColor3">@color/theme1_10</item>
+        <item name="oval1">@color/theme1_2</item>
+        <item name="oval2">@color/theme1_6</item>
+        <item name="oval3">@color/theme1_7</item>
+        <item name="oval4">@color/theme1_4</item>
+        <item name="category1">@color/theme1_1</item>
+        <item name="category2">@color/theme1_2</item>
+        <item name="category3">@color/theme1_3</item>
+        <item name="category4">@color/theme1_4</item>
+        <item name="category5">@color/theme1_5</item>
+        <item name="category6">@color/theme1_6</item>
+        <item name="category7">@color/theme1_7</item>
     </style>
 
-    <style name="AppTheme.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
+    <style name="AppTheme3" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="darkBackgroundColor">@color/theme3_8</item>
+        <item name="lightBackgroundColor">@color/theme3_4</item>
+        <item name="colorButtonNormal">@color/theme3_6</item>
+        <item name="colorPrimaryDark">@color/theme1_9</item>
+        <item name="colorAccent">@color/theme1_9</item>
+        <item name="background">@color/theme3_7</item>
+        <item name="cardBackgroundcolor">@color/theme1_11</item>
+        <item name="textColorDark">@color/theme1_9</item>
+        <item name="textColorLight">@color/theme1_11</item>
+        <item name="cardListColor">@color/theme1_10</item>
+        <item name="buttoncolor">@color/theme1_7</item>
+        <item name="deleteColor">@color/theme3_7</item>
+        <item name="editColor">@color/theme3_6</item>
+        <item name="barColor">@color/theme3_6</item>
+        <item name="loginColor1">@color/theme3_6</item>
+        <item name="loginColor2">@color/theme3_4</item>
+        <item name="loginColor3">@color/theme3_11</item>
+        <item name="oval1">@color/theme3_2</item>
+        <item name="oval2">@color/theme3_4</item>
+        <item name="oval3">@color/theme3_5</item>
+        <item name="oval4">@color/theme3_7</item>
+        <item name="category1">@color/theme3_1</item>
+        <item name="category2">@color/theme3_2</item>
+        <item name="category3">@color/theme3_3</item>
+        <item name="category4">@color/theme3_4</item>
+        <item name="category5">@color/theme3_5</item>
+        <item name="category6">@color/theme3_6</item>
+        <item name="category7">@color/theme3_7</item>
+
     </style>
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="AppTheme4" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="darkBackgroundColor">@color/theme4_1</item>
+        <item name="lightBackgroundColor">@color/theme4_6</item>
+        <item name="colorButtonNormal">@color/theme4_1</item>
+        <item name="colorPrimaryDark">@color/theme4_10</item>
+        <item name="colorAccent">@color/theme1_9</item>
+        <item name="background">@color/theme4_10</item>
+        <item name="cardBackgroundcolor">@color/theme1_11</item>
+        <item name="textColorDark">@color/theme1_9</item>
+        <item name="textColorLight">@color/theme1_11</item>
+        <item name="cardListColor">@color/theme1_10</item>
+        <item name="buttoncolor">@color/theme4_7</item>
+        <item name="deleteColor">@color/theme4_5</item>
+        <item name="editColor">@color/theme4_6</item>
+        <item name="barColor">@color/theme4_1</item>
+        <item name="loginColor2">@color/theme4_6</item>
+        <item name="loginColor1">@color/theme4_1</item>
+        <item name="loginColor3">@color/theme1_10</item>
+        <item name="oval1">@color/theme4_7</item>
+        <item name="oval2">@color/theme4_6</item>
+        <item name="oval3">@color/theme4_4</item>
+        <item name="oval4">@color/theme4_2</item>
+        <item name="category1">@color/theme4_1</item>
+        <item name="category2">@color/theme4_2</item>
+        <item name="category3">@color/theme4_3</item>
+        <item name="category4">@color/theme4_4</item>
+        <item name="category5">@color/theme4_5</item>
+        <item name="category6">@color/theme4_6</item>
+        <item name="category7">@color/theme4_7</item>
 
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    </style>
+
+
+    <style name="AppTheme5" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="darkBackgroundColor">@color/theme5_8</item>
+        <item name="lightBackgroundColor">@color/theme5_5</item>
+        <item name="colorButtonNormal">@color/theme5_10</item>
+        <item name="colorPrimaryDark">@color/theme5_10</item>
+        <item name="colorAccent">@color/theme1_9</item>
+        <item name="background">@color/theme5_10</item>
+        <item name="cardBackgroundcolor">@color/theme1_11</item>
+        <item name="textColorDark">@color/theme1_9</item>
+        <item name="textColorLight">@color/theme1_11</item>
+        <item name="cardListColor">@color/theme5_5</item>
+        <item name="buttoncolor">@color/theme5_7</item>
+        <item name="deleteColor">@color/theme5_3</item>
+        <item name="editColor">@color/theme5_4</item>
+        <item name="barColor">@color/theme5_10</item>
+        <item name="loginColor2">@color/theme5_5</item>
+        <item name="loginColor1">@color/theme5_9</item>
+        <item name="loginColor3">@color/theme5_5</item>
+        <item name="oval1">@color/theme5_7</item>
+        <item name="oval2">@color/theme5_6</item>
+        <item name="oval3">@color/theme5_4</item>
+        <item name="oval4">@color/theme5_2</item>
+        <item name="category1">@color/theme5_1</item>
+        <item name="category2">@color/theme5_2</item>
+        <item name="category3">@color/theme5_3</item>
+        <item name="category4">@color/theme5_4</item>
+        <item name="category5">@color/theme5_5</item>
+        <item name="category6">@color/theme5_6</item>
+        <item name="category7">@color/theme5_7</item>
+
+    </style>
+
+<!--    <style name="AppTheme.NoActionBar">-->
+<!--        <item name="windowActionBar">false</item>-->
+<!--        <item name="windowNoTitle">true</item>-->
+<!--    </style>-->
+
+<!--    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />-->
+
+<!--    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />-->
 
 </resources>

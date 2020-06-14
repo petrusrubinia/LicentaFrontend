@@ -1,16 +1,29 @@
 package com.example.frigider.viewModel
 
 import android.app.Application
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.*
+import com.example.frigider.dataAcces.api.UserApi
+import com.example.frigider.dataAcces.retrofit.RetrofitProvider
+import com.example.frigider.model.User.CreateUser
+import com.example.frigider.model.User.User
+import kotlinx.coroutines.launch
 
 
 class SettingsViewModel (application: Application): AndroidViewModel(application) {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is send Fragment"
+
+    private val userService = RetrofitProvider.createService(application, UserApi::class.java)
+    var userAccount: MutableLiveData<User?> = MutableLiveData()
+    fun getUser() {
+        println("vaaalll" +userAccount.value)
+        userAccount.value = LoginViewModel.userAccou
+        println("vaaalll" +userAccount.value)
+
     }
-    val text: LiveData<String> = _text
+    fun saveChanges(newUserinfo: User) {
+        viewModelScope.launch {
+            userService.saveChanges(newUserinfo)
+        }
+    }
+
 }

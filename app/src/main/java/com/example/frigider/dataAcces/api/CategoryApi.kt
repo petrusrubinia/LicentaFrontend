@@ -1,11 +1,10 @@
-package com.example.frigider.repository.api
+package com.example.frigider.dataAcces.api
 
 import com.example.frigider.model.Category.Category
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.Path
-import java.util.*
 
 
 private const val add = "api/categorii/add"
