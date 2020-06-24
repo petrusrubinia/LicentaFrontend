@@ -2,19 +2,273 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:stretchColumns="0,1,2"
+    style=""
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/text_info"
+    <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
+        android:layout_height="match_parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="1dp"
+                android:layout_marginStart="1dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginRight="1dp"
+                android:gravity="center"
+                android:paddingLeft="30dp"
+                android:text="@string/temperatura"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/produs"
+                android:paddingRight="10dp"
+                android:paddingLeft="40dp"
+                android:layout_margin="1dp"
+                android:layout_column="0"
+                android:textStyle="bold"
+                android:gravity="center"/>
+
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="0"
+                android:layout_margin="1dp"
+                android:layout_marginStart="1dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="1dp"
+                android:layout_marginRight="1dp"
+                android:layout_marginBottom="1dp"
+                android:gravity="center"
+                android:paddingLeft="10dp"
+                android:text="@string/interval1"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Carne"
+                android:paddingLeft="10dp"
+                android:layout_margin="1dp"
+                android:layout_column="0"
+                android:textStyle="bold"
+                android:gravity="center"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/interval2"
+                android:paddingLeft="10dp"
+                android:layout_margin="1dp"
+                android:outlineSpotShadowColor="@color/theme1_9"
+                android:layout_column="0"
+                android:textStyle="bold"
+                android:gravity="center"/>
+            <TableLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Mancare gatita"
+                    android:paddingLeft="10dp"
+                    android:layout_margin="1dp"
+                    android:layout_column="0"
+                    android:textStyle="bold"
+                    android:gravity="center"/>
+                <TableRow>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Fructe de pature"
+                        android:paddingLeft="10dp"
+                        android:layout_margin="1dp"
+                        android:layout_column="0"
+                        android:textStyle="bold"
+                        android:gravity="center"/>
+                </TableRow>
+                <TableRow>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Legume"
+                        android:paddingLeft="10dp"
+                        android:layout_margin="1dp"
+                        android:layout_column="0"
+                        android:textStyle="bold"
+                        android:gravity="center"/>
+                </TableRow>
+                <TableRow>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Kiwi, Pere"
+                        android:paddingLeft="10dp"
+                        android:layout_margin="1dp"
+                        android:layout_column="0"
+                        android:textStyle="bold"
+                        android:gravity="center"/>
+                </TableRow>
+
+            </TableLayout>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/interval3"
+                android:paddingLeft="10dp"
+                android:layout_margin="1dp"
+                android:layout_column="0"
+                android:textStyle="bold"
+                android:gravity="center"/>
+            <TableLayout>
+                <TableRow>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Citrice"
+                        android:paddingLeft="10dp"
+                        android:layout_margin="1dp"
+                        android:layout_column="0"
+                        android:textStyle="bold"
+                        android:gravity="center"/>
+                </TableRow>
+                <TableRow>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Mere"
+                        android:paddingLeft="10dp"
+                        android:layout_margin="1dp"
+                        android:layout_column="0"
+                        android:textStyle="bold"
+                        android:gravity="center"/>
+                </TableRow>
+            </TableLayout>
+
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/interval4"
+                android:paddingLeft="10dp"
+                android:layout_margin="1dp"
+                android:layout_column="0"
+                android:textStyle="bold"
+                android:gravity="center"/>
+            <TableLayout>
+                <TableRow>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Oua"
+                        android:paddingLeft="10dp"
+                        android:layout_margin="1dp"
+                        android:layout_column="0"
+                        android:textStyle="bold"
+                        android:gravity="center"/>
+                </TableRow>
+                <TableRow>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Dovleac"
+                        android:paddingLeft="10dp"
+                        android:layout_margin="1dp"
+                        android:layout_column="0"
+                        android:textStyle="bold"
+                        android:gravity="center"/>
+                </TableRow>
+                <TableRow>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Cartofi, Ceapa"
+                        android:paddingLeft="10dp"
+                        android:layout_margin="1dp"
+                        android:layout_column="0"
+                        android:textStyle="bold"
+                        android:gravity="center"/>
+                </TableRow>
+                <TableRow>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Avocado"
+                        android:paddingLeft="10dp"
+                        android:layout_margin="1dp"
+                        android:layout_column="0"
+                        android:textStyle="bold"
+                        android:gravity="center"/>
+                </TableRow>
+                <TableRow>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Fructe Tropicale"
+                        android:paddingLeft="10dp"
+                        android:layout_margin="1dp"
+                        android:layout_column="0"
+                        android:textStyle="bold"
+                        android:gravity="center"/>
+                </TableRow>
+            </TableLayout>
+        </TableRow>
+    </TableLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
