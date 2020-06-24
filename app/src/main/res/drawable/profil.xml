@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:right="100dp"
+        android:left="-200dp"
+        android:top="-510dp"
+        android:bottom="-100dp"
+        >
+        <rotate android:fromDegrees="-250">
+            <shape android:shape="rectangle">
+                <padding android:top="0dp"/>
+                <gradient
+                    android:angle="90"
+                    android:startColor="?attr/darkBackgroundColor"
+                    android:endColor="?attr/lightBackgroundColor"
+                    android:type="linear" />
+            </shape>
+        </rotate>
+    </item>
+</layer-list>
