@@ -11,6 +11,7 @@ import os
 
 
 def motion_detection():
+    url = 'http://192.168.100.71:8080/api/aliment/detectare'
     video_capture = cv2.VideoCapture(0) # value (0) selects the devices default camera
     time.sleep(2)
 
@@ -66,17 +67,23 @@ def motion_detection():
         # with 4 straight lines you dont need to plot each point along the line, you only need to plot the corners of the rectangle
         # and then join the lines, eg instead of having say 750 points, you have 4 points.... look at the memory you save!
         for c in cnt:
-          if cv2.contourArea(c) > 800: # if contour area is less then 800 non-zero(not-black) pixels(white)
+          if cv2.contourArea(c) > 500: # if contour area is less then 800 non-zero(not-black) pixels(white)
             (x, y, w, h) = cv2.boundingRect(c) # x,y are the top left of the contour and w,h are the width and hieght 
 
             #cv2.rectangle(frame, (x,y), (x+w, y+h), (0, 255, 0), 2) # (0, 255, 0) = color R,G,B = lime / 2 = thickness(i think?)(YES IM RITE!)
                 # image used for rectangle is frame so that its on the secruity feed image and not the binary/threshold/foreground image
                 # as its already used the threshold/(binary image) to find the contours this image/frame is what image it will be drawed on
             text = 'Occupied'
-            time.sleep(0.05)
+            #time.sleep(0.05)
             if image_counter <= 20:
-              img_name = "image_{}.jpg".format(image_counter)
+              img_name = "images/image_{}.jpg".format(image_counter)
               cv2.imwrite(img_name,frame)
+              with open("images/image_{}.jpg".format(image_counter), 'rb') as img:
+                name_img= os.path.basename("images/image_{}.jpg".format(image_counter))
+                files= {'file': (name_img,img,'multipart/form-data',{'Expires': '0'}) }
+                with requests.Session() as s:
+                  r = s.post(url,files=files)
+                  print(r.status_code)
               image_counter += 1
                 # text that appears when there is motion in video feed
           else:
