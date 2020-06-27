@@ -1,0 +1,11 @@
+import requests
+import json
+import os
+for i in range(5):
+  url = 'http://192.168.100.71:8080/api/aliment/detectare'
+  with open("image_{}.jpg".format(i), 'rb') as img:
+    name_img= os.path.basename("image_{}.jpg".format(i))
+    files= {'file': (name_img,img,'multipart/form-data',{'Expires': '0'}) }
+    with requests.Session() as s:
+      r = s.post(url,files=files)
+      print(r.status_code)
