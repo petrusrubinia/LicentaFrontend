@@ -37,7 +37,7 @@ class PageViewModel(application: Application) : AndroidViewModel(application) {
                     )
                 }
                 2 -> list = list.filter { product ->
-                    product.categorie.equals("lactate") || product.categorie.equals("gatita")
+                    product.categorie.equals("lactate") || product.categorie.equals("preparate")
                 }
                 3 -> list = list.filter { product ->
                     product.categorie.equals("fastfood") || product.categorie.equals("dulciuri")

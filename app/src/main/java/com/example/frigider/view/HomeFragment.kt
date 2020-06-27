@@ -111,12 +111,13 @@ class HomeFragment : Fragment() {
         var color5:Int?
         var color6:Int?
         if(getThemeId() == R.style.AppTheme1) {
-            color0 = context?.let { ContextCompat.getColor(it, R.color.theme1_4) }
+            color0 = context?.let { ContextCompat.getColor(context, R.color.theme1_4) }
             color1 = context?.let { ContextCompat.getColor(it, R.color.theme1_1) }
             color2 = context?.let { ContextCompat.getColor(it, R.color.theme1_2) }
             color3 = context?.let { ContextCompat.getColor(it, R.color.theme1_5) }
             color4 = context?.let { ContextCompat.getColor(it, R.color.theme1_3) }
             color5 = context?.let { ContextCompat.getColor(it, R.color.theme1_6) }
+            color6 = context?.let { ContextCompat.getColor(it, R.color.theme1_7) }
         }else
             if(getThemeId()== R.style.AppTheme2)
             {
@@ -126,6 +127,7 @@ class HomeFragment : Fragment() {
                 color3 = context?.let { ContextCompat.getColor(it, R.color.theme2_5) }
                 color4 = context?.let { ContextCompat.getColor(it, R.color.theme2_3) }
                 color5 = context?.let { ContextCompat.getColor(it, R.color.theme2_6) }
+                color6 = context?.let { ContextCompat.getColor(it, R.color.theme2_7) }
             }
         else if(getThemeId() == R.style.AppTheme3)
             {
@@ -135,6 +137,7 @@ class HomeFragment : Fragment() {
                 color3 = context?.let { ContextCompat.getColor(it, R.color.theme3_5) }
                 color4 = context?.let { ContextCompat.getColor(it, R.color.theme3_3) }
                 color5 = context?.let { ContextCompat.getColor(it, R.color.theme3_6) }
+                color6 = context?.let { ContextCompat.getColor(it, R.color.theme3_8) }
             }
         else if(getThemeId() == R.style.AppTheme4)
             {
@@ -144,22 +147,24 @@ class HomeFragment : Fragment() {
                 color3 = context?.let { ContextCompat.getColor(it, R.color.theme4_5) }
                 color4 = context?.let { ContextCompat.getColor(it, R.color.theme4_3) }
                 color5 = context?.let { ContextCompat.getColor(it, R.color.theme4_6) }
+                color6 = context?.let { ContextCompat.getColor(it, R.color.theme4_7) }
 
             }
         else{
-                color0 = context?.let { ContextCompat.getColor(it, R.color.theme5_4) }
-                color1 = context?.let { ContextCompat.getColor(it, R.color.theme5_1) }
-                color2 = context?.let { ContextCompat.getColor(it, R.color.theme5_2) }
-                color3 = context?.let { ContextCompat.getColor(it, R.color.theme5_5) }
-                color4 = context?.let { ContextCompat.getColor(it, R.color.theme5_3) }
-                color5 = context?.let { ContextCompat.getColor(it, R.color.theme5_6) }
+                color0 = context?.let { ContextCompat.getColor(context, R.color.theme5_4) }
+                color1 = context?.let { ContextCompat.getColor(context, R.color.theme5_1) }
+                color2 = context?.let { ContextCompat.getColor(context, R.color.theme5_2) }
+                color3 = context?.let { ContextCompat.getColor(context, R.color.theme5_5) }
+                color4 = context?.let { ContextCompat.getColor(context, R.color.theme5_3) }
+                color5 = context?.let { ContextCompat.getColor(context, R.color.theme5_6) }
+                color6 = context?.let { ContextCompat.getColor(it, R.color.theme5_8) }
             }
         println("Actual--->>" + getThemeId())
-        println("Theme1----->"+ R.style.AppTheme1)
-        println("Theme2----->"+ R.style.AppTheme2)
-        println("Theme3----->"+ R.style.AppTheme3)
-        println("Theme4----->"+ R.style.AppTheme4)
-        println("Theme5----->"+ R.style.AppTheme5)
+        println("Theme1----->"+ color0!!)
+        println("Theme2----->"+ color1!!)
+        println("Theme3----->"+ color2!!)
+        println("Theme4----->"+ color3!!)
+        println("Theme5----->"+ color4!!)
 
         val MY_COLORS = intArrayOf(
 
@@ -168,7 +173,8 @@ class HomeFragment : Fragment() {
             color2!!,
             color3!!,
             color4!!,
-            color5!!
+            color5!!,
+            color6!!
         )
         val colors2 = ArrayList<Int>()
 

@@ -24,7 +24,7 @@ class TempFragment : Fragment() {
     lateinit var id_imagine_temperatura_actuala: ImageView
     lateinit var id_imagine_temperatura_optima: ImageView
     var optimTemp: Int = 0
-    var actualTemp: Int = 0
+    var actualTemp: Int = 1
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,35 +36,39 @@ class TempFragment : Fragment() {
         tempViewModel = ViewModelProvider(this).get(TempViewModel::class.java)
 
 
-        tempViewModel.optimTemp.observe(this, Observer {
-            tempViewModel.getOptimTemp()
-            if(it!= null)
-                optimTemp = it
-        })
-        tempViewModel.actualTemp.observe(this, Observer {
-            tempViewModel.getActualTemp()
-            if(it != null)
-                actualTemp = it
-        })
+
+
 
         temperatura_actuala= root.findViewById(R.id.id_temperatura_actuala)
         id_imagine_temperatura_actuala = root.findViewById(R.id.id_imagine_temperatura_actuala)
         temperatura_optima = root.findViewById(R.id.id_temperatura_optima)
-        id_imagine_temperatura_optima = root.findViewById(R.id.id_imagine_temperatura_actuala)
+        id_imagine_temperatura_optima = root.findViewById(R.id.id_imagine_temperatura_optima)
 
         temperatura_actuala.setOnClickListener {
-            setCardViewImg(root,temperatura_actuala,actualTemp,id_imagine_temperatura_actuala)
+            setCardViewImg(actualTemp,id_imagine_temperatura_actuala)
+            tempViewModel.optimTemp.observe(this, Observer {
+                tempViewModel.getOptimTemp()
+                if(it!= null)
+                    optimTemp = it
+            })
+            println(" temperatura ->> $optimTemp")
+            setCardViewImg(optimTemp, id_imagine_temperatura_optima)
         }
         temperatura_optima.setOnClickListener {
-            setCardViewImg(root, temperatura_optima, optimTemp, id_imagine_temperatura_optima)
+            setCardViewImg(actualTemp,id_imagine_temperatura_actuala)
+            tempViewModel.optimTemp.observe(this, Observer {
+                tempViewModel.getOptimTemp()
+                if(it!= null)
+                    optimTemp = it
+            })
+            println(" temperatura ->> $optimTemp")
+            setCardViewImg( optimTemp, id_imagine_temperatura_optima)
         }
 
         return root
     }
 
     private fun setCardViewImg(
-        root: View?,
-        temp_cardView: CardView?,
         temp: Int,
         imagine: ImageView
     ) {

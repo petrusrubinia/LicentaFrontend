@@ -23,7 +23,7 @@ object RetrofitProvider {
                     .create()
 
                 retrofit = Retrofit.Builder()
-                    .baseUrl("http://192.168.100.71:8080/")
+                    .baseUrl("http://192.168.100.85:8080/")
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                     .addConverterFactory(GsonConverterFactory.create(gson))
                     .build()
